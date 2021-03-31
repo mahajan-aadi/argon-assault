@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Music : MonoBehaviour
+
+public class particle_destroy : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        Destroy(this.gameObject, 3f);   
     }
-
 
 }

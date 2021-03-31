@@ -3,26 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-public class rocket : MonoBehaviour
+public class rocket_position : MonoBehaviour
 {
+    [Header("position")]
     [SerializeField] float speed = 15f;
-    [SerializeField] float x_offset = 5f, y_offset = 3f;
+    [SerializeField] float x_offset = 5.5f, y_offset = 3.5f;
+    [Header("facing")]
     [SerializeField] float down_look = 5f, side_look = 5f;
-    [SerializeField] float y_rot_factor = 20f, x_rot_factor = 20f;
+    [SerializeField] float y_rot_factor = 20f, x_rot_factor = 30f;
     float x_value, y_value;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool is_dead = false;
 
     // Update is called once per frame
     void Update()
     {
-        position();
-        rotation();
+        if (!is_dead)
+        {
+            position();
+            rotation();
+        }
     }
 
+    void onplayerdeath() { is_dead = true; }
     private void rotation()
     {
         float x_rot = y_rot_factor * y_value + transform.localPosition.y* down_look;
