@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8511756984158911502}
   - component: {fileID: 7717923262824333389}
   - component: {fileID: 7589520557997080346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Example_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,9 @@ MonoBehaviour:
   side_look: 5
   y_rot_factor: 20
   x_rot_factor: 30
+  lasesrs:
+  - {fileID: 7162432695955536273}
+  - {fileID: 7162432695739175827}
 --- !u!54 &8511756984158911502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,7 +119,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -157,7 +160,8 @@ GameObject:
   - component: {fileID: 6052657244268866552}
   - component: {fileID: 6052657244268866559}
   - component: {fileID: 6052657244268866558}
-  - component: {fileID: 6052657244268866553}
+  - component: {fileID: 906612508}
+  - component: {fileID: 906612509}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -231,7 +235,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052657244268866557}
   m_Enabled: 1
---- !u!114 &6052657244268866553
+--- !u!95 &906612508
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052657244268866557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &906612509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,17 +263,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6052657244268866557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5cb22d331ef7d64796f917c6a455a32, type: 3}
+  m_Script: {fileID: 11500000, guid: a622f19b4a9448a42b29f0ae9c8a064e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circuit: {fileID: 0}
-  lookAheadForTargetOffset: 2
-  lookAheadForTargetFactor: 0.1
-  lookAheadForSpeedOffset: 2
-  lookAheadForSpeedFactor: 0.2
-  progressStyle: 0
-  pointToPointThreshold: 5
-  target: {fileID: 6052657244268866552}
 --- !u!1001 &6052657243199415946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,6 +277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser_right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076185, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3501910618942076186, guid: f67d382175224d8429ea413112bfb1cc,
         type: 3}
@@ -333,8 +353,29 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f67d382175224d8429ea413112bfb1cc, type: 3}
+--- !u!1 &7162432695739175827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3501910618942076185, guid: f67d382175224d8429ea413112bfb1cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6052657243199415946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7162432695739175824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3501910618942076186, guid: f67d382175224d8429ea413112bfb1cc,
@@ -352,6 +393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser_left
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076185, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3501910618942076186, guid: f67d382175224d8429ea413112bfb1cc,
         type: 3}
@@ -423,8 +469,29 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501910618942076187, guid: f67d382175224d8429ea413112bfb1cc,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f67d382175224d8429ea413112bfb1cc, type: 3}
+--- !u!1 &7162432695955536273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3501910618942076185, guid: f67d382175224d8429ea413112bfb1cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6052657243586251912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7162432695955536274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3501910618942076186, guid: f67d382175224d8429ea413112bfb1cc,

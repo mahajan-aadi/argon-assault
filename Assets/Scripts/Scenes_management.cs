@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Scenes_management : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        reload();
-    }
-    void load_next() { SceneManager.LoadScene(1); }
+    int scene = 0;
+    void load_next() { SceneManager.LoadScene(scene); }
     public void reload()
     {
-        Invoke("load_next", 4f);
+        scene = SceneManager.GetActiveScene().buildIndex;
+        Invoke("load_next", 1f);
+    }
+    public void next()
+    {
+        scene = SceneManager.GetActiveScene().buildIndex + 1;
+        Invoke("load_next", 3f);
     }
 }

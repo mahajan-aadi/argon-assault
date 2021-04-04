@@ -7,6 +7,7 @@ public class Music : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        GetComponent<Scenes_management>().next();
     }
 
 

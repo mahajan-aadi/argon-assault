@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7155682041342183739}
   - component: {fileID: 7155682041342183738}
   - component: {fileID: 7155682041342183737}
+  - component: {fileID: 15717634}
+  - component: {fileID: 15717633}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -76,3 +78,41 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 4fcf063ce41380c45a8c02e20c5ff7dc, type: 2}
   m_EnableTreeColliders: 1
+--- !u!320 &15717634
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155682041342183736}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d89cba05da3569d40bcb8055ce7b573d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -5237924729722939045, guid: d89cba05da3569d40bcb8055ce7b573d, type: 2}
+    value: {fileID: 15717633}
+  m_ExposedReferences:
+    m_References: []
+--- !u!95 &15717633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155682041342183736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

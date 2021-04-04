@@ -11,6 +11,8 @@ public class rocket_position : MonoBehaviour
     [Header("facing")]
     [SerializeField] float down_look = 5f, side_look = 5f;
     [SerializeField] float y_rot_factor = 20f, x_rot_factor = 30f;
+    [Header("lasers")]
+    [SerializeField] GameObject[] lasesrs;
     float x_value, y_value;
     bool is_dead = false;
 
@@ -21,7 +23,15 @@ public class rocket_position : MonoBehaviour
         {
             position();
             rotation();
+            shoot();
         }
+    }
+
+    private void shoot()
+    {
+       if( CrossPlatformInputManager.GetButton("Fire")){ foreach (GameObject laser in lasesrs) { laser.GetComponent<ParticleSystem>().enableEmission = true; } }
+       if( CrossPlatformInputManager.GetButtonUp("Fire")){ foreach (GameObject laser in lasesrs) { laser.GetComponent<ParticleSystem>().enableEmission = false; } }
+
     }
 
     void onplayerdeath() { is_dead = true; }

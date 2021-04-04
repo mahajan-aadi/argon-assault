@@ -8,14 +8,17 @@ public class collision : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
+        dead();
+    }
+    private void dead()
+    {
         Instantiate(DeathFX, transform.position, Quaternion.identity);
-         player_dead();
-
+        player_dead();
     }
 
     private void player_dead()
     {
         SendMessage("onplayerdeath");
-        SendMessage("reload");
+        FindObjectOfType<Scenes_management>().reload();
     }
 }
