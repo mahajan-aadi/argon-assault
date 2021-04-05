@@ -15,8 +15,12 @@ public class rocket_position : MonoBehaviour
     [SerializeField] GameObject[] lasesrs;
     float x_value, y_value;
     bool is_dead = false;
-
+    AudioSource audioSource;
     // Update is called once per frame
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
         if (!is_dead)
@@ -29,8 +33,21 @@ public class rocket_position : MonoBehaviour
 
     private void shoot()
     {
-       if( CrossPlatformInputManager.GetButton("Fire")){ foreach (GameObject laser in lasesrs) { laser.GetComponent<ParticleSystem>().enableEmission = true; } }
-       if( CrossPlatformInputManager.GetButtonUp("Fire")){ foreach (GameObject laser in lasesrs) { laser.GetComponent<ParticleSystem>().enableEmission = false; } }
+       if( CrossPlatformInputManager.GetButton("Fire"))
+        {
+            foreach (GameObject laser in lasesrs) 
+            {
+                laser.GetComponent<ParticleSystem>().enableEmission = true; 
+            }
+            if (!audioSource.isPlaying) { audioSource.Play(); }
+        }
+       if( CrossPlatformInputManager.GetButtonUp("Fire"))
+        {
+            foreach (GameObject laser in lasesrs) 
+            {
+                laser.GetComponent<ParticleSystem>().enableEmission = false; }
+            audioSource.Stop(); 
+        }
 
     }
 

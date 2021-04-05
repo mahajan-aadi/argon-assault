@@ -17,4 +17,8 @@ public class Scenes_management : MonoBehaviour
         scene = SceneManager.GetActiveScene().buildIndex + 1;
         Invoke("load_next", 3f);
     }
+    public void Quit_game()
+    {
+        Application.Quit();
+    }
 }

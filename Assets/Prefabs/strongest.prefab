@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathFX: {fileID: 1619287715445824370, guid: 3d509cb3f7496724aada00182ffe1c66, type: 3}
+  death_clip: {fileID: 8300000, guid: 56f178c30ccbb324d99be7e4a86247bc, type: 3}
   hit_points: 2
   score: 300
 --- !u!65 &6094869367998457637

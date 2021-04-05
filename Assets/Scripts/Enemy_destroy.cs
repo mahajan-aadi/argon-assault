@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_destroy : MonoBehaviour
 {
     [SerializeField] GameObject DeathFX;
+    [SerializeField] AudioClip death_clip;
     [SerializeField] int hit_points = 3, score = 100;
     private void Start()
     {
@@ -19,7 +20,8 @@ public class Enemy_destroy : MonoBehaviour
     private void dead()
     {
         FindObjectOfType<Score_management>().increase_score(score);
-        Instantiate(DeathFX, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(death_clip, Camera.main.transform.position, 0.4f);
+        Instantiate(DeathFX, Camera.main.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

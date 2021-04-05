@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class collision : MonoBehaviour
 {
+    [SerializeField] AudioClip death_clip;
     [SerializeField] GameObject DeathFX;
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
+    {
+        dead();
+    }
+    private void OnParticleCollision(GameObject other)
     {
         dead();
     }
@@ -19,6 +24,7 @@ public class collision : MonoBehaviour
     private void player_dead()
     {
         SendMessage("onplayerdeath");
+        AudioSource.PlayClipAtPoint(death_clip, Camera.main.transform.position, 0.5f);
         FindObjectOfType<Scenes_management>().reload();
     }
 }
